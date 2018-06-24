@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework</RootNamespace>
+    <AssemblyName>Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0.2\lib\net452\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0.2\lib\net452\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk.Workflow, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Workflow.8.2.0.2\lib\net452\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PubComp.Caching.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PubComp.Caching.Core.3.1.2\lib\net45\PubComp.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PubComp.Caching.SystemRuntime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PubComp.Caching.SystemRuntime.3.1.1\lib\net45\PubComp.Caching.SystemRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\Caching\CachingServiceBuilderExtensions.cs" />
+    <Compile Include="Abstractions\Caching\Extensions.cs" />
+    <Compile Include="Abstractions\Configuration\ISettingsService.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\ArrayValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\BooleanValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\ClassValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\CollectionValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\ComparableValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\EnumerableValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\EnumValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\ErrorInfo.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Guard.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\GuidValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\IArg.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\IntegerValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\AccumulateErrorsArg.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ArgBase.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ArgBaseExpression.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ArgName.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ArgNameExpression.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ArgNameFunc.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\EnumExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ErrorHandlerBase.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\IMessageHandler.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\MathUtil.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\MemberInfoReader.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\SaveMessageHandler.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\StringExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ThrowMessageHandler.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Internals\ThrowOnFirstErrorArg.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\NullableValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\ObjectValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\StringValidatorExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGuard\Validate.cs" />
+    <Compile Include="Abstractions\Logging\LoggerProperty.cs" />
+    <Compile Include="Abstractions\Logging\LoggingServiceBuilderExtensions.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\ConsoleLoggerConfigurationExtensions.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\ConsoleSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedDisplayValueFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedJsonValueFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedValueFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedValueFormatterState.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\EventPropertyTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\ExceptionTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\LevelOutputFormat.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\LevelTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\MessageTemplateOutputTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\NewLineTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\OutputTemplateRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\OutputTemplateTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\PropertiesTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\TextTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Output\TimestampTokenRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Platform\WindowsConsole.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\AlignmentExtensions.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\Casing.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\Padding.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\ThemedMessageTemplateRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\AnsiConsoleTheme.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\AnsiConsoleThemes.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\ConsoleTheme.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\ConsoleThemeStyle.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\EmptyConsoleTheme.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\StyleReset.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleTheme.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleThemes.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleThemeStyle.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\BatchedConnectionStatus.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\BoundedConcurrentQueue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\PeriodicBatchingSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\PortableTimer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Capturing\DepthLimiter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Capturing\GetablePropertyFinder.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Capturing\MessageTemplateProcessor.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Capturing\PropertyBinder.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Capturing\PropertyValueConverter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\ILoggerSettings.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerAuditSinkConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerDestructuringConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerEnrichmentConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerFilterConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerMinimumLevelConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerSettingsConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Configuration\LoggerSinkConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Context\ImmutableStack.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Context\LogContext.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Constants.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Enrichers\EmptyEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Enrichers\FixedPropertyEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Enrichers\PropertyEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Enrichers\SafeAggregateEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Filters\DelegateFilter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\IDestructuringPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\ILogEventEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\ILogEventFilter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\ILogEventPropertyFactory.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\ILogEventPropertyValueFactory.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\ILogEventSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\IMessageTemplateParser.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\IScalarConversionPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\LevelOverrideMap.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Logger.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\LoggingLevelSwitch.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\MessageTemplateFormatMethodAttribute.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Pipeline\MessageTemplateCache.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Pipeline\SilentLogger.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Sinks\AggregateSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Sinks\FilteringSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Sinks\RestrictedSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Sinks\SafeAggregateSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Core\Sinks\SecondaryLoggerSink.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Data\LogEventPropertyValueRewriter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Data\LogEventPropertyValueVisitor.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Debugging\LoggingFailedException.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Debugging\SelfLog.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Enrichers\LogContextEnricher.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\DictionaryValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\LevelAlias.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\LogEvent.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\LogEventLevel.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\LogEventProperty.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\LogEventPropertyValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\MessageTemplate.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\ScalarValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\SequenceValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Events\StructureValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Filters\Matching.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\LevelOutputFormat.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\MessageTemplateTextFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\Obsolete\LiteralStringValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\Obsolete\LogEventLevelValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\Obsolete\LogEventPropertiesValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\Obsolete\LogEventPropertyMessageValue.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\OutputProperties.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Display\PropertiesOutputFormat.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\ITextFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Json\JsonFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Json\JsonValueFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Formatting\Raw\RawFormatter.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\ILogger.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Log.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\LoggerConfiguration.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\LoggerExtensions.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\Alignment.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\AlignmentDirection.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\Destructuring.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\MessageTemplateParser.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\MessageTemplateToken.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\PropertyToken.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Parsing\TextToken.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\ByteArrayScalarConversionPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\DelegateDestructuringPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\EnumScalarConversionPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\ProjectedDestructuringPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\ReflectionTypesScalarDestructuringPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Policies\SimpleScalarConversionPolicy.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Rendering\Casing.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Rendering\MessageTemplateRenderer.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Rendering\Padding.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Settings\KeyValuePairs\CallableConfigurationMethodFinder.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Settings\KeyValuePairs\KeyValuePairSettings.cs" />
+    <Compile Include="Abstractions\Logging\Serilog\Settings\KeyValuePairs\SettingValueConversions.cs" />
+    <Compile Include="CoreServiceBuilderExtensions.cs" />
+    <Compile Include="Core\CodeActivities\CodeActivityExecutionContextAccessor.cs" />
+    <Compile Include="Core\CodeActivities\CodeActivityPipelineServiceBuilderExtensions.cs" />
+    <Compile Include="Core\CodeActivities\ICodeActivityExecutionContextAccessor.cs" />
+    <Compile Include="Core\CoreExtensions.cs" />
+    <Compile Include="Core\IEntityPipelineService.cs" />
+    <Compile Include="Core\IExecutionContextAccessor.cs" />
+    <Compile Include="Core\InvalidPipelineExecutionException.cs" />
+    <Compile Include="Core\Messages.cs" />
+    <Compile Include="Core\MessagesAttribute.cs" />
+    <Compile Include="Core\MimeTypeMap.cs" />
+    <Compile Include="Core\Plugins\EntityPipelineService.cs" />
+    <Compile Include="Core\Plugins\IPluginExecutionContextAccessor.cs" />
+    <Compile Include="Core\Plugins\PipelineStages.cs" />
+    <Compile Include="Core\Plugins\PluginExecutionContextAccessor.cs" />
+    <Compile Include="Core\Plugins\PluginPipelineServiceBuilderExtensions.cs" />
+    <Compile Include="Core\Target.cs" />
+    <Compile Include="Core\TargetEntityLogicalNameAttribute.cs" />
+    <Compile Include="Core\User.cs" />
+    <Compile Include="Helpers\MetadataExtensions.cs" />
+    <Compile Include="Helpers\OptionSetHelpers.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ILMerge.props" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILMergeOrder.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\Http\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets')" />
+</Project>
