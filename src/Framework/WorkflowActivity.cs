@@ -2,8 +2,9 @@
 using System.Activities;
 using Framework.Abstractions.Logging;
 using Ninject;
+using Qubit.Xrm.Framework.Core.CodeActivities;
 
-namespace Framework.Core.CodeActivities
+namespace Qubit.Xrm.Framework
 {
     public abstract class WorkflowActivity : CodeActivity
     {

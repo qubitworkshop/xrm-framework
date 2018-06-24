@@ -2,14 +2,14 @@
 using System.Activities;
 using Framework.Abstractions.Caching;
 using Framework.Abstractions.Exceptions.CodeGuard;
-using Framework.Core;
-using Framework.Core.CodeActivities;
-using Framework.Core.Plugins;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 using Ninject;
+using Qubit.Xrm.Framework.Core;
+using Qubit.Xrm.Framework.Core.CodeActivities;
+using Qubit.Xrm.Framework.Core.Plugins;
 
-namespace Framework
+namespace Qubit.Xrm.Framework
 {
     public static class CoreServiceBuilderExtensions
     {

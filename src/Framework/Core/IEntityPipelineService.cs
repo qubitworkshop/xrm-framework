@@ -1,4 +1,4 @@
-﻿namespace Framework.Core
+﻿namespace Qubit.Xrm.Framework.Core
 {
     public interface IEntityPipelineService
     {

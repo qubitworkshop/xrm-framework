@@ -1,13 +1,13 @@
 ﻿using System;
 using Framework.Abstractions.Caching;
 using Framework.Abstractions.Exceptions.CodeGuard;
-using Framework.Core.Plugins;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Workflow;
 using PubComp.Caching.Core;
+using Qubit.Xrm.Framework.Core.Plugins;
 
-namespace Framework.Core
+namespace Qubit.Xrm.Framework.Core
 {
     public class Target
     {

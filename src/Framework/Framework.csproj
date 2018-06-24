@@ -8,8 +8,8 @@
     <ProjectGuid>{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework</RootNamespace>
-    <AssemblyName>Framework</AssemblyName>
+    <RootNamespace>Qubit.Xrm.Framework</RootNamespace>
+    <AssemblyName>Qubit.Xrm.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Framework.Core
+namespace Qubit.Xrm.Framework.Core
 {
     public class MessagesAttribute : Attribute
     {

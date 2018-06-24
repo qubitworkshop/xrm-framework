@@ -1,7 +1,6 @@
 ﻿using System;
-using Microsoft.Xrm.Sdk;
 
-namespace Framework.Core
+namespace Qubit.Xrm.Framework.Core
 {
     public static class CoreExtensions
     {

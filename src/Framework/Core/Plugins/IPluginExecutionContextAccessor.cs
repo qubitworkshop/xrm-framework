@@ -1,4 +1,4 @@
-﻿namespace Framework.Core.Plugins
+﻿namespace Qubit.Xrm.Framework.Core.Plugins
 {
     public interface IPluginExecutionContextAccessor : IExecutionContextAccessor
     {

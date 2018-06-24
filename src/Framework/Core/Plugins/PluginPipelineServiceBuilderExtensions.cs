@@ -4,7 +4,7 @@ using System.Linq;
 using Framework.Abstractions.Exceptions.CodeGuard;
 using Ninject;
 
-namespace Framework.Core.Plugins
+namespace Qubit.Xrm.Framework.Core.Plugins
 {
     public static class PluginPipelineServiceBuilderExtensions
     {

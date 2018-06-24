@@ -4,7 +4,7 @@ using Microsoft.Xrm.Sdk.Workflow;
 using PubComp.Caching.Core;
 using Serilog;
 
-namespace Framework.Core.CodeActivities
+namespace Qubit.Xrm.Framework.Core.CodeActivities
 {
     public class CodeActivityExecutionContextAccessor : ICodeActivityExecutionContextAccessor
     {

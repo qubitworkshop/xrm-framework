@@ -1,4 +1,4 @@
-﻿namespace Framework.Core.CodeActivities
+﻿namespace Qubit.Xrm.Framework.Core.CodeActivities
 {
     public interface ICodeActivityExecutionContextAccessor : IExecutionContextAccessor
     {

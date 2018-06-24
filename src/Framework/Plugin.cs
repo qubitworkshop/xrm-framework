@@ -2,8 +2,9 @@
 using Framework.Abstractions.Logging;
 using Microsoft.Xrm.Sdk;
 using Ninject;
+using Qubit.Xrm.Framework.Core.Plugins;
 
-namespace Framework.Core.Plugins
+namespace Qubit.Xrm.Framework
 {
     public abstract class Plugin : IPlugin 
     {

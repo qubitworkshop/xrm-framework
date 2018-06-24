@@ -1,7 +1,7 @@
 ﻿using Framework.Abstractions.Exceptions.CodeGuard;
 using Ninject;
 
-namespace Framework.Core.CodeActivities
+namespace Qubit.Xrm.Framework.Core.CodeActivities
 {
     public static class CodeActivityPipelineServiceBuilderExtensions
     {

@@ -5,7 +5,7 @@ using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Workflow;
 using PubComp.Caching.Core;
 
-namespace Framework.Core
+namespace Qubit.Xrm.Framework.Core
 {
     public class User
     {

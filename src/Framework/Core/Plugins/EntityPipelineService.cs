@@ -2,7 +2,7 @@
 using Framework.Abstractions.Exceptions.CodeGuard;
 using Serilog;
 
-namespace Framework.Core.Plugins
+namespace Qubit.Xrm.Framework.Core.Plugins
 {
     public abstract class EntityPipelineService : IEntityPipelineService
     {

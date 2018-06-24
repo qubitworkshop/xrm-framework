@@ -5,7 +5,7 @@ using Microsoft.Xrm.Sdk;
 using PubComp.Caching.Core;
 using Serilog;
 
-namespace Framework.Core.Plugins
+namespace Qubit.Xrm.Framework.Core.Plugins
 {
     public class PluginExecutionContextAccessor : IPluginExecutionContextAccessor
     {
