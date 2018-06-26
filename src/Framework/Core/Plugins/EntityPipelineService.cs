@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Framework.Abstractions.Exceptions.CodeGuard;
 using Serilog;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Core.Plugins
 {

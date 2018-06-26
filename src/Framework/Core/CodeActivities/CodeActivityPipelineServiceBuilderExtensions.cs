@@ -1,5 +1,5 @@
-﻿using Framework.Abstractions.Exceptions.CodeGuard;
-using Ninject;
+﻿using Ninject;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Core.CodeActivities
 {

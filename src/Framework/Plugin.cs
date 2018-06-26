@@ -1,12 +1,13 @@
 ﻿using System;
-using Framework.Abstractions.Logging;
 using Microsoft.Xrm.Sdk;
 using Ninject;
+using Qubit.Xrm.Framework.Abstractions.Configuration;
+using Qubit.Xrm.Framework.Abstractions.Logging;
 using Qubit.Xrm.Framework.Core.Plugins;
 
 namespace Qubit.Xrm.Framework
 {
-    public abstract class Plugin : IPlugin 
+    public abstract class Plugin<TSettingsProvider> : IPlugin where TSettingsProvider : ISettingsProvider
     {
         private readonly IKernel _fakeServices;
 
@@ -35,6 +36,8 @@ namespace Qubit.Xrm.Framework
             services.AddCoreServices()
                 .AddPluginServices(serviceProvider)
                 .AddPluginPipelineServices();
+
+            services.Bind<ISettingsProvider>().To<TSettingsProvider>().InTransientScope();
 
             IPluginExecutionContextAccessor executionContextAccessor = services.Get<IPluginExecutionContextAccessor>();
 

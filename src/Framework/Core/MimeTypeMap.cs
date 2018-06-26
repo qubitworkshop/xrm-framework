@@ -711,7 +711,7 @@ namespace Qubit.Xrm.Framework.Core
         {
             if (extension == null)
             {
-                throw new ArgumentNullException("extension");
+                throw new ArgumentNullException(nameof(extension));
             }
 
             if (!extension.StartsWith("."))
@@ -719,9 +719,7 @@ namespace Qubit.Xrm.Framework.Core
                 extension = "." + extension;
             }
 
-            string mime;
-
-            return _mappings.Value.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+            return _mappings.Value.TryGetValue(extension, out var mime) ? mime : "application/octet-stream";
         }
 
         public static string GetExtension(string mimeType)
@@ -733,7 +731,7 @@ namespace Qubit.Xrm.Framework.Core
         {
             if (mimeType == null)
             {
-                throw new ArgumentNullException("mimeType");
+                throw new ArgumentNullException(nameof(mimeType));
             }
 
             if (mimeType.StartsWith("."))
@@ -741,20 +739,17 @@ namespace Qubit.Xrm.Framework.Core
                 throw new ArgumentException("Requested mime type is not valid: " + mimeType);
             }
 
-            string extension;
-
-            if (_mappings.Value.TryGetValue(mimeType, out extension))
+            if (_mappings.Value.TryGetValue(mimeType, out var extension))
             {
                 return extension;
             }
+
             if (throwErrorIfNotFound)
             {
                 throw new ArgumentException("Requested mime type is not registered: " + mimeType);
             }
-            else
-            {
-                return string.Empty;
-            }
+
+            return string.Empty;
         }
     }
 }

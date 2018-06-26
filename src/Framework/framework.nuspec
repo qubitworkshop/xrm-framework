@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--./nuget.exe pack -properties Configuration=Release-->
+<package >
+  <metadata>
+    <id>Qubit.Xrm.Framework</id>
+    <title>Dynamics CRM 365 Customization Framework</title>
+    <version>0.0.1.1</version>
+    <authors>Arun Murugan</authors>
+    <owners>qubitworkshop</owners>
+    <licenseUrl>https://github.com/qubitworkshop/xrm-framework/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/qubitworkshop/xrm-framework</projectUrl> 
+    <!-- <iconUrl></iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A framework for implementing testable plugins and code activities for Dynamics CRM 365</description>
+    <releaseNotes>Initial draft of the solution to provide a framework for CRM customization</releaseNotes>
+    <copyright>Copyright 2018 QubitWorkshop</copyright>
+    <tags>dynamics365 crm xrm</tags>
+    <dependencies>
+      <dependency id="Microsoft.CrmSdk.CoreAssemblies" version="8.2.0.2" />
+      <dependency id="Microsoft.CrmSdk.Workflow" version="8.2.0.2" />
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="Ninject" version="3.3.4" />
+      <dependency id="PubComp.Caching.Core" version="3.1.2" />
+      <dependency id="PubComp.Caching.SystemRuntime" version="3.1.1" />
+      <dependency id="Seterlund.CodeGuard" version="2.3.4" />
+      <dependency id="MSBuild.ILMerge.Task" version="1.0.5" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="readme.txt" target="" />
+    <file src="../Framework.Nuget.Artefacts/CustomSettingsProvider.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/SamplePlugin.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/ISampleEntityPipelineService.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/SampleEntityPipelineService.cs" target="" />
+  </files>
+  <!-- <contentFiles>
+    <file src="readme.txt" target="" />
+    <file src="../Framework.Nuget.Artefacts/CustomSettingsProvider.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/SamplePlugin.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/ISampleEntityPipelineService.cs" target="" />
+    <file src="../Framework.Nuget.Artefacts/SampleEntityPipelineService.cs" target="" />
+  </contentFiles> -->
+</package>

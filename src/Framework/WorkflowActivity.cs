@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Activities;
-using Framework.Abstractions.Logging;
 using Ninject;
+using Qubit.Xrm.Framework.Abstractions.Logging;
 using Qubit.Xrm.Framework.Core.CodeActivities;
 
 namespace Qubit.Xrm.Framework

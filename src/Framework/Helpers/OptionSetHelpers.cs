@@ -1,11 +1,7 @@
-﻿using Microsoft.Xrm.Sdk;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.Xrm.Sdk;
 
-namespace Framework.Core.Helpers
+namespace Qubit.Xrm.Framework.Helpers
 {
     public static class OptionSetHelpers
     {

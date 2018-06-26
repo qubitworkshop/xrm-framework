@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Framework.Abstractions.Exceptions.CodeGuard;
 using Ninject;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Core.Plugins
 {

@@ -1,14 +1,10 @@
-﻿using Ninject;
+﻿using System;
+using Ninject;
 using Ninject.Activation;
 using PubComp.Caching.Core;
 using PubComp.Caching.SystemRuntime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Framework.Abstractions.Caching
+namespace Qubit.Xrm.Framework.Abstractions.Caching
 {
     public static class CachingServiceBuilderExtensions
     {

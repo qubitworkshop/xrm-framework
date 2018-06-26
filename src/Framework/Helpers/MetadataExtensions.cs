@@ -3,7 +3,7 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
 
-namespace Framework.Core.Helpers
+namespace Qubit.Xrm.Framework.Helpers
 {
     public static class MetadataExtensions
     {

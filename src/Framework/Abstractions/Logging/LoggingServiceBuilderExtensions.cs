@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Framework.Abstractions.Configuration;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 using Ninject;
 using Ninject.Activation;
+using Qubit.Xrm.Framework.Abstractions.Configuration;
 using Serilog;
 
-namespace Framework.Abstractions.Logging
+namespace Qubit.Xrm.Framework.Abstractions.Logging
 {
     public static class LoggingServiceBuilderExtensions
     {
@@ -23,7 +20,7 @@ namespace Framework.Abstractions.Logging
 
         private static ILogger BuildLogger(IContext context)
         {
-            ISettingsService settingsService = context.Kernel.Get<ISettingsService>();
+            ISettingsProvider settingsService = context.Kernel.Get<ISettingsProvider>();
             List<LoggerProperty> properties = settingsService.Get<List<LoggerProperty>>("Logging");
 
             if (context.Kernel.GetBindings(typeof(IPluginExecutionContext)).Any())

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Framework.Abstractions.Exceptions.CodeGuard;
 using Microsoft.Xrm.Sdk;
 using PubComp.Caching.Core;
 using Serilog;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Core.Plugins
 {

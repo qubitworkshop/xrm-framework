@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Activities;
-using Framework.Abstractions.Caching;
-using Framework.Abstractions.Exceptions.CodeGuard;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 using Ninject;
+using Qubit.Xrm.Framework.Abstractions.Caching;
 using Qubit.Xrm.Framework.Core;
 using Qubit.Xrm.Framework.Core.CodeActivities;
 using Qubit.Xrm.Framework.Core.Plugins;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework
 {
