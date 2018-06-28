@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using Ninject;
 using Qubit.Xrm.Framework.Abstractions.Configuration;
 using Qubit.Xrm.Framework.Abstractions.Logging;
+using Qubit.Xrm.Framework.Core;
 using Qubit.Xrm.Framework.Core.Plugins;
 
 namespace Qubit.Xrm.Framework
@@ -57,6 +58,17 @@ namespace Qubit.Xrm.Framework
         {
             IPluginExecutionContextAccessor executionContextAccessor = services.Get<IPluginExecutionContextAccessor>();
             executionContextAccessor.HandleException(ex);
+        }
+    }
+
+    public abstract class Plugin<TSettingsProvider, TPipelineServiceInterface> : Plugin<TSettingsProvider>
+        where TSettingsProvider : ISettingsProvider
+        where TPipelineServiceInterface : IEntityPipelineService
+    {
+        public override void Execute(IKernel services)
+        {
+            TPipelineServiceInterface entityPipelineService = services.Get<TPipelineServiceInterface>();
+            entityPipelineService.HandlePipelineEvent();
         }
     }
 }
