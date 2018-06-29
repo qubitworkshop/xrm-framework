@@ -93,6 +93,7 @@
     <Compile Include="Abstractions\Caching\CachingServiceBuilderExtensions.cs" />
     <Compile Include="Abstractions\Caching\Extensions.cs" />
     <Compile Include="Abstractions\Configuration\ISettingsProvider.cs" />
+    <Compile Include="Abstractions\Configuration\XrmSettingsProvider.cs" />
     <Compile Include="Abstractions\Logging\LoggerProperty.cs" />
     <Compile Include="Abstractions\Logging\LoggingServiceBuilderExtensions.cs" />
     <Compile Include="Abstractions\Logging\Serilog.Sinks.Console\ConsoleLoggerConfigurationExtensions.cs" />
@@ -248,7 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="framework.nuspec" />
+    <None Include="Framework.nuspec" />
     <None Include="key.snk" />
     <None Include="packages.config" />
   </ItemGroup>

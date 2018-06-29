@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Samples.Plugins")]
+[assembly: AssemblyTitle("Framework.Mock")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Samples.Plugins")]
+[assembly: AssemblyProduct("Framework.Mock")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("49ec80e7-5d64-4b4d-abeb-e2b686c85045")]
+[assembly: Guid("3eb3ff45-1638-4e1e-a983-bf7f9659c284")]
 
 // Version information for an assembly consists of the following four values:
 //

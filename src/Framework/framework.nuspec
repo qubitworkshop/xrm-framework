@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!--./nuget.exe pack -properties Configuration=Release-->
-<!--Install-Package Qubit.Xrm.Framework -Version 0.0.1.4 -Source C:\github\xrm-framework\src\Framework-->
+<!--Install-Package Qubit.Xrm.Framework -Version 0.0.1.6 -Source C:\github\xrm-framework\src\Framework-->
 <package >
   <metadata>
     <id>Qubit.Xrm.Framework</id>
     <title>Dynamics CRM 365 Customization Framework</title>
-    <version>0.0.1.5</version>
+    <version>1.0.0.7</version>
     <authors>Arun Murugan</authors>
     <owners>qubitworkshop</owners>
     <licenseUrl>https://github.com/qubitworkshop/xrm-framework/blob/master/LICENSE.md</licenseUrl>
@@ -23,7 +23,6 @@
       <dependency id="Ninject" version="3.3.4" />
       <dependency id="PubComp.Caching.SystemRuntime" version="3.1.1" />
       <dependency id="Seterlund.CodeGuard" version="2.3.4" />
-      <dependency id="MSBuild.ILMerge.Task" version="1.0.5" />
     </dependencies>
     <references>
       <reference file="Qubit.Xrm.Framework.dll" />
@@ -31,11 +30,11 @@
   </metadata>
   <files>
     <file src="readme.txt" target="" />
-    <file src="../Framework.Nuget.Artefacts/CustomSettingsProvider.cs" target="content/XrmFrameworkSamples" />
-    <file src="../Framework.Nuget.Artefacts/ISampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/SampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/SampleEntityPipelinePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/SamplePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/SampleErrorHandlingPlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Framework.Nuget.Artefacts/Framework/CustomSettingsProvider.cs" target="content/XrmFrameworkSamples" />
+    <file src="../Framework.Nuget.Artefacts/Framework/ISampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Framework.Nuget.Artefacts/Framework/SampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Framework.Nuget.Artefacts/Framework/SampleEntityPipelinePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Framework.Nuget.Artefacts/Framework/SamplePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Framework.Nuget.Artefacts/Framework/SampleErrorHandlingPlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
   </files>
 </package>

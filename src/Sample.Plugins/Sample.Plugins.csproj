@@ -5,13 +5,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{49EC80E7-5D64-4B4D-ABEB-E2B686C85045}</ProjectGuid>
+    <ProjectGuid>{4376223A-313E-48CA-B314-8178CB6F1DCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samples.Plugins</RootNamespace>
-    <AssemblyName>Samples.Plugins</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Sample.Plugins</RootNamespace>
+    <AssemblyName>Sample.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -59,6 +60,9 @@
     <Reference Include="PubComp.Caching.SystemRuntime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PubComp.Caching.SystemRuntime.3.1.1\lib\net45\PubComp.Caching.SystemRuntime.dll</HintPath>
     </Reference>
+    <Reference Include="Qubit.Xrm.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=958b6cf6dc7bd512, processorArchitecture=MSIL">
+      <HintPath>..\packages\Qubit.Xrm.Framework.1.0.0.7\lib\net461\Qubit.Xrm.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="Seterlund.CodeGuard, Version=2.3.4.1324, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Seterlund.CodeGuard.2.3.4\lib\net40\Seterlund.CodeGuard.dll</HintPath>
     </Reference>
@@ -86,8 +90,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomSettingsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XrmFrameworkSamples\CustomSettingsProvider.cs" />
+    <Compile Include="XrmFrameworkSamples\Plugins\ISampleEntityPipelineService.cs" />
+    <Compile Include="XrmFrameworkSamples\Plugins\SampleEntityPipelinePlugin.cs" />
+    <Compile Include="XrmFrameworkSamples\Plugins\SampleEntityPipelineService.cs" />
+    <Compile Include="XrmFrameworkSamples\Plugins\SampleErrorHandlingPlugin.cs" />
+    <Compile Include="XrmFrameworkSamples\Plugins\SamplePlugin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ILMerge.props" />

@@ -8,7 +8,8 @@ using Qubit.Xrm.Framework.Core.Plugins;
 
 namespace Qubit.Xrm.Framework
 {
-    public abstract class Plugin<TSettingsProvider> : IPlugin where TSettingsProvider : ISettingsProvider
+    public abstract class Plugin<TSettingsProvider> : IPlugin 
+        where TSettingsProvider : ISettingsProvider
     {
         private readonly IKernel _fakeServices;
 

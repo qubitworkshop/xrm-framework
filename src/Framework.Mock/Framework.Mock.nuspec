@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--./nuget.exe pack -properties Configuration=Release-->
+<!--Install-Package Qubit.Xrm.Framework -Version 0.0.1.6 -Source C:\github\xrm-framework\src\Framework-->
+<package >
+  <metadata>
+    <id>Qubit.Xrm.Framework.Mock</id>
+    <title>Dynamics CRM 365 Customization Test Framework</title>
+    <version>1.0.0.7</version>
+    <authors>Arun Murugan</authors>
+    <owners>qubitworkshop</owners>
+    <licenseUrl>https://github.com/qubitworkshop/xrm-framework/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/qubitworkshop/xrm-framework</projectUrl> 
+    <!-- <iconUrl></iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A framework for implementing testable plugins and code activities for Dynamics CRM 365</description>
+    <releaseNotes>Initial draft of the solution to provide a framework for CRM customization</releaseNotes>
+    <copyright>Copyright 2018 QubitWorkshop</copyright>
+    <tags>dynamics365 crm xrm unit testing</tags>
+    <dependencies>
+      <dependency id="Qubit.Xrm.Framework" version="1.0.0.7" />
+      <dependency id="FakeXrmEasy.365" version="1.45.0" />
+      <dependency id="Newtonsoft.Json.Schema" version="3.0.10" />
+      <dependency id="NUnit" version="3.10.1" />
+      <dependency id="NUnit3TestAdapter" version="3.10.0" />
+    </dependencies>
+    <references>
+      <reference file="Qubit.Xrm.Framework.Mock.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="readme.txt" target="" />
+  </files>
+</package>
