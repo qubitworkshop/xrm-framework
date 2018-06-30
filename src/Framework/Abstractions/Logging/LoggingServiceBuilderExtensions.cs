@@ -6,6 +6,7 @@ using Ninject;
 using Ninject.Activation;
 using Qubit.Xrm.Framework.Abstractions.Configuration;
 using Serilog;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Abstractions.Logging
 {
@@ -21,37 +22,86 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
         private static ILogger BuildLogger(IContext context)
         {
             ISettingsProvider settingsService = context.Kernel.Get<ISettingsProvider>();
-            List<LoggerProperty> properties = settingsService.Get<List<LoggerProperty>>("Logging");
+            Dictionary<string, string> properties = settingsService.Get<Dictionary<string, string>>("Logging");
 
             if (context.Kernel.GetBindings(typeof(IPluginExecutionContext)).Any())
             {
                 IPluginExecutionContext pluginExecutionContext = context.Kernel.Get<IPluginExecutionContext>();
-                properties.Add(new LoggerProperty { Key = "correlationId", Value = pluginExecutionContext.CorrelationId.ToString() });
-                properties.Add(new LoggerProperty { Key = "operationId", Value = pluginExecutionContext.OperationId.ToString() });
+                properties.Add("CorrelationId", pluginExecutionContext.CorrelationId.ToString());
+                properties.Add("OperationId", pluginExecutionContext.OperationId.ToString());
             }
             else
             {
                 IWorkflowContext workflowContext = context.Kernel.Get<IWorkflowContext>();
-                properties.Add(new LoggerProperty { Key = "correlationId", Value = workflowContext.CorrelationId.ToString() });
-                properties.Add(new LoggerProperty { Key = "operationId", Value = workflowContext.OperationId.ToString() });
+                properties.Add("CorrelationId", workflowContext.CorrelationId.ToString());
+                properties.Add("OperationId", workflowContext.OperationId.ToString());
             }
 
-            return properties.GetLoggerConfiguration("")
-                .WriteTo
-                .Console()
-                .CreateLogger();
+            Guard.That(properties.ContainsKey("SourceName")).IsTrue();
+            Guard.That(properties.ContainsKey("Sink")).IsTrue();
+
+            string sourceName = properties["SourceName"];
+
+            switch (properties["Sink"].ToLower())
+            {
+                case FrameworkSinks.Console:
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .Console()
+                        .CreateLogger();
+                case FrameworkSinks.File:
+                    Guard.That(properties.ContainsKey("Path")).IsTrue();
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .File(properties["Path"])
+                        .CreateLogger();
+                case FrameworkSinks.Seq:
+                    Guard.That(properties.ContainsKey("ServerUrl")).IsTrue();
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .Seq(properties["ServerUrl"])
+                        .CreateLogger();
+                case FrameworkSinks.EventLog:
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .EventLog(sourceName)
+                        .CreateLogger();
+                case FrameworkSinks.SqlServer:
+                    Guard.That(properties.ContainsKey("ConnectionString")).IsTrue();
+                    Guard.That(properties.ContainsKey("TableName")).IsTrue();
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .MSSqlServer(properties["ConnectionString"], 
+                            properties["TableName"],
+                            autoCreateSqlTable: true)
+                        .CreateLogger();
+                case FrameworkSinks.Splunk:
+                    Guard.That(properties.ContainsKey("EventCollectorUrl")).IsTrue();
+                    Guard.That(properties.ContainsKey("Token")).IsTrue();
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .EventCollector(properties["EventCollectorUrl"], 
+                            properties["Token"])
+                        .CreateLogger();
+                default:
+                    return properties.GetLoggerConfiguration(sourceName)
+                        .WriteTo
+                        .Console()
+                        .CreateLogger();
+            }
+
         }
 
-        public static LoggerConfiguration GetLoggerConfiguration(this IEnumerable<LoggerProperty> properties, string name)
+        public static LoggerConfiguration GetLoggerConfiguration(this Dictionary<string, string> properties, string name)
         {
-            Dictionary<string, string> propertiesDictionary =
-                properties.ToDictionary(loggerProperty => loggerProperty.Key, loggerProperty => loggerProperty.Value);
+            Guard.That(properties.ContainsKey("OperationId")).IsTrue();
+            Guard.That(properties.ContainsKey("CorrelationId")).IsTrue();
 
             return new LoggerConfiguration()
-                .ReadFrom.KeyValuePairs(propertiesDictionary)
+                .ReadFrom.KeyValuePairs(properties)
                 .Enrich.WithProperty("Service Type", name)
-                .Enrich.WithProperty("Operation Id", propertiesDictionary["operationId"])
-                .Enrich.WithProperty("Correlation Id", propertiesDictionary["correlationId"]);
+                .Enrich.WithProperty("Operation Id", properties["OperationId"])
+                .Enrich.WithProperty("Correlation Id", properties["CorrelationId"]);
         }
     }
 }
