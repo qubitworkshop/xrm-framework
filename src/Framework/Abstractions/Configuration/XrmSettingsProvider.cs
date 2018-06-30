@@ -8,6 +8,7 @@ using Microsoft.Xrm.Sdk.Query;
 using Newtonsoft.Json;
 using PubComp.Caching.Core;
 using Qubit.Xrm.Framework.Abstractions.Caching;
+using Qubit.Xrm.Framework.Abstractions.Exceptions;
 using Qubit.Xrm.Framework.Helpers;
 using Seterlund.CodeGuard;
 
@@ -83,7 +84,8 @@ namespace Qubit.Xrm.Framework.Abstractions.Configuration
                 return EnsureSetting(key);
             }
 
-            Guard.That(() => resultSet.Entities.Count).IsEqual(1);
+            Validate.That(() => resultSet.Entities.Count).IsEqual(1)
+                .WithExceptions((value, errors) => throw new SettingNotFoundException());
 
             return resultSet.Entities.First();
         }

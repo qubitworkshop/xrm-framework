@@ -94,10 +94,13 @@
     <Compile Include="Abstractions\Caching\CachingServiceBuilderExtensions.cs" />
     <Compile Include="Abstractions\Caching\Extensions.cs" />
     <Compile Include="Abstractions\Configuration\ISettingsProvider.cs" />
+    <Compile Include="Abstractions\Configuration\SettingNotFoundException.cs" />
     <Compile Include="Abstractions\Configuration\XrmSettingsProvider.cs" />
+    <Compile Include="Abstractions\Exceptions\CodeGaurdExtensions.cs" />
+    <Compile Include="Abstractions\Exceptions\InvalidExecutionContextException.cs" />
     <Compile Include="Abstractions\Logging\FrameworkSinks.cs" />
-    <Compile Include="Abstractions\Logging\LoggerProperty.cs" />
     <Compile Include="Abstractions\Logging\LoggingServiceBuilderExtensions.cs" />
+    <Compile Include="Abstractions\Logging\SettingsKeyNotFoundException.cs" />
     <Compile Include="Abstractions\Logging\Serilog.Formatting.Compact\Formatting\Compact\CompactJsonFormatter.cs" />
     <Compile Include="Abstractions\Logging\Serilog.Formatting.Compact\Formatting\Compact\EventIdHash.cs" />
     <Compile Include="Abstractions\Logging\Serilog.Formatting.Compact\Formatting\Compact\RenderedCompactJsonFormatter.cs" />
@@ -313,9 +316,7 @@
     <None Include="key.snk" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstractions\Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="readme.txt" />
   </ItemGroup>

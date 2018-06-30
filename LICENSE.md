@@ -20,3 +20,6 @@ There are some things that you must shoulder:
 The SimPL continues perpetually, except that your license rights end automatically if:
 - You do not abide by the "give back to the community" terms (your licensees get to keep their rights if they abide);
 - Anyone prevents you from distributing the software under the terms of the SimPL.
+
+## Other Applicable Licenses
+serilog: https://github.com/serilog/serilog/blob/dev/LICENSE
