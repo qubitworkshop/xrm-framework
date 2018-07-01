@@ -29,13 +29,12 @@ namespace Qubit.Xrm.Framework
             if (services == null)
             {
                 services = new StandardKernel();
-
                 //Add mockable services here
-                services.AddLogging();
             }
 
             //No need to mock these since they are taken care by the mock framework
-            services.AddCoreServices()
+            services.AddLogging()
+                .AddCoreServices()
                 .AddPluginServices(serviceProvider)
                 .AddPluginPipelineServices();
 

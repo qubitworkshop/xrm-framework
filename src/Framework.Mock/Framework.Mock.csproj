@@ -84,9 +84,6 @@
     <Reference Include="PubComp.Caching.SystemRuntime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PubComp.Caching.SystemRuntime.3.1.1\lib\net45\PubComp.Caching.SystemRuntime.dll</HintPath>
     </Reference>
-    <Reference Include="Qubit.Xrm.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=958b6cf6dc7bd512, processorArchitecture=MSIL">
-      <HintPath>..\packages\Qubit.Xrm.Framework.1.0.0.9\lib\net461\Qubit.Xrm.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="Seterlund.CodeGuard, Version=2.3.4.1324, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Seterlund.CodeGuard.2.3.4\lib\net40\Seterlund.CodeGuard.dll</HintPath>
     </Reference>
@@ -146,7 +143,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="readme.txt" />
+    <ProjectReference Include="..\Framework\Framework.csproj">
+      <Project>{ae94d1b9-97c2-4eeb-9fa4-3c1580799a3e}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
