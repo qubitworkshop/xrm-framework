@@ -127,7 +127,7 @@ namespace Qubit.Xrm.Framework.Core.Plugins
             throw new InvalidPipelineExecutionException("Pipeline event not implemented");
         }
 
-        //CREATEs
+        //CREATE
         protected virtual void BeforeCreatingBeforeValidation()
         {
             throw new InvalidPipelineExecutionException("Pipeline event not implemented");

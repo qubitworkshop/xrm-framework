@@ -11,7 +11,7 @@ namespace Qubit.Xrm.Framework.Abstractions.Exceptions
     {
         public static IArg<T> WithExceptions<T>(this IArg<T> arg, Action<T, IEnumerable<ErrorInfo>> handleErrorsAction) where T : IComparable
         {
-            if (arg.Errors.Any())
+            if (arg.Errors != null && arg.Errors.Any())
             {
                 handleErrorsAction(arg.Value, arg.Errors);
             }

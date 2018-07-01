@@ -33,6 +33,7 @@ namespace Qubit.Xrm.Framework.Mock.Core
 
         public string PrimaryEntityName { get; private set; }
         public string Message { get; private set; }
+        
         public Guid UserId { get; set; }
 
         public ParameterCollection InputParameters { get; set; }
@@ -52,6 +53,12 @@ namespace Qubit.Xrm.Framework.Mock.Core
             Relationships = new List<MockRelationship>();
             AssociateRequests = new List<AssociateRequest>();
 
+            if (!String.IsNullOrEmpty(MockOptionsResource.ProxyType))
+            {
+                Type proxyType = Type.GetType(MockOptionsResource.ProxyType, true);
+                ProxyTypesAssembly = proxyType.Assembly;
+            }
+            
             PrimaryEntityName = MockOptionsResource.PrimaryEntityName;
             Message = MockOptionsResource.Message;
             UserId = MockOptionsResource.UserId;

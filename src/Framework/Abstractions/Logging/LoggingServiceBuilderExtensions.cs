@@ -38,10 +38,10 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                 properties.Add("OperationId", workflowContext.OperationId.ToString());
             }
 
-            Validate.That(() => properties.ContainsKey("SourceName")).IsTrue()
+            Guard.That(properties.ContainsKey("SourceName")).IsTrue()
                 .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("SourceName"));
 
-            Validate.That(() => properties.ContainsKey("Sink")).IsTrue()
+            Guard.That(properties.ContainsKey("Sink")).IsTrue()
                 .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("Sink"));
 
             string sourceName = properties["SourceName"];
@@ -54,7 +54,7 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                         .Console()
                         .CreateLogger();
                 case FrameworkSinks.File:
-                    Validate.That(() => properties.ContainsKey("Path")).IsTrue()
+                    Guard.That(properties.ContainsKey("Path")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("Path"));
 
                     return properties.GetLoggerConfiguration(sourceName)
@@ -62,7 +62,7 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                         .File(properties["Path"])
                         .CreateLogger();
                 case FrameworkSinks.Seq:
-                    Validate.That(() => properties.ContainsKey("ServerUrl")).IsTrue()
+                    Guard.That(properties.ContainsKey("ServerUrl")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("ServerUrl"));
 
                     return properties.GetLoggerConfiguration(sourceName)
@@ -75,9 +75,9 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                         .EventLog(sourceName)
                         .CreateLogger();
                 case FrameworkSinks.SqlServer:
-                    Validate.That(() => properties.ContainsKey("ConnectionString")).IsTrue()
+                    Guard.That(properties.ContainsKey("ConnectionString")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("ConnectionString"));
-                    Validate.That(() => properties.ContainsKey("TableName")).IsTrue()
+                    Guard.That(properties.ContainsKey("TableName")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("TableName"));
 
                     return properties.GetLoggerConfiguration(sourceName)
@@ -87,9 +87,9 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                             autoCreateSqlTable: true)
                         .CreateLogger();
                 case FrameworkSinks.Splunk:
-                    Validate.That(() => properties.ContainsKey("EventCollectorUrl")).IsTrue()
+                    Guard.That(properties.ContainsKey("EventCollectorUrl")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("EventCollectorUrl"));
-                    Validate.That(() => properties.ContainsKey("Token")).IsTrue()
+                    Guard.That(properties.ContainsKey("Token")).IsTrue()
                         .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("Token"));
 
                     return properties.GetLoggerConfiguration(sourceName)
@@ -108,9 +108,9 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
 
         public static LoggerConfiguration GetLoggerConfiguration(this Dictionary<string, string> properties, string name)
         {
-            Validate.That(() => properties.ContainsKey("OperationId")).IsTrue()
+            Guard.That(properties.ContainsKey("OperationId")).IsTrue()
                 .WithExceptions((value, errors) => throw new InvalidExecutionContextException());
-            Validate.That(() => properties.ContainsKey("OperationId")).IsTrue()
+            Guard.That(properties.ContainsKey("OperationId")).IsTrue()
                 .WithExceptions((value, errors) => throw new InvalidExecutionContextException());
 
             return new LoggerConfiguration()

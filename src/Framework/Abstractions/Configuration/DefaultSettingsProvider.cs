@@ -84,7 +84,7 @@ namespace Qubit.Xrm.Framework.Abstractions.Configuration
                 return EnsureSetting(key);
             }
 
-            Validate.That(() => resultSet.Entities.Count).IsEqual(1)
+            Guard.That(resultSet.Entities.Count).IsEqual(1)
                 .WithExceptions((value, errors) => throw new SettingNotFoundException());
 
             return resultSet.Entities.First();

@@ -8,12 +8,12 @@
         {
           "Name": "qubit_key",
           "Type": "string",
-          "Value": "ServiceBus.NotificationQueueSettings"
+          "Value": "Logging"
         },
         {
           "Name": "qubit_value",
           "Type": "string",
-          "Value": "{\"HostName\": \"dwcbriibmq\",\"Port\": 1415,\"QueueManagerName\":\"BUS_MQ\",\"QueueName\":\"TGA.FINANCE.CUST.CRM.INPUT\",\"ChannelName\":\"TGA.ADMIN.SVRCONN\",\"LocalErrorQueuePath\":\".\\\\private$\\\\tga.crm.plugins.notification_error\"}"
+          "Value": "{\"SourceName\": \"XrmFrameworkTests\",\"Sink\": \"Console\"}"
         }
       ]
     }

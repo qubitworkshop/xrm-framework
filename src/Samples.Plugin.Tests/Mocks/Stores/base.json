@@ -1,5 +1,6 @@
 ﻿{
   "Inherits": [
+    "Samples.Plugin.Tests.Mocks.Stores.systemusers.json",
     "Samples.Plugin.Tests.Mocks.Stores.qubit_settings.json",
     "Samples.Plugin.Tests.Mocks.Stores.account.json"
   ],

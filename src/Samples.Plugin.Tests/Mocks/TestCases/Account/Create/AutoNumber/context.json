@@ -9,7 +9,7 @@
       "Type": "Entity",
       "Value": {
         "Id": "A4766A71-1D2E-4374-8B6D-354476D1C1EC",
-        "LogicalName": "email",
+        "LogicalName": "account",
         "Attributes": []
       }
     }

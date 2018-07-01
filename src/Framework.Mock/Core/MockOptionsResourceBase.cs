@@ -5,6 +5,7 @@ namespace Qubit.Xrm.Framework.Mock.Core
 {
     public class MockOptionsResourceBase
     {
+        public string ProxyType { get; set; }
         public string PrimaryEntityName { get; set; }
         public string Message { get; set; }
         public Guid UserId { get; set; }

@@ -17,5 +17,10 @@ namespace Samples.Plugin
             _organizationService = organizationService;
             _settingsService = settingsService;
         }
+
+        protected override void OnCreated()
+        {
+            
+        }
     }
 }

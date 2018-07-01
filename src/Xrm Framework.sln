@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Nuget.Artefacts", "Framework.Nuget.Artefacts\Framework.Nuget.Artefacts.csproj", "{4D61D9D7-4FD9-4C8A-B524-FE432DBED77A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Mock", "Framework.Mock\Framework.Mock.csproj", "{3EB3FF45-1638-4E1E-A983-BF7F9659C284}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{136C75F6-557B-456B-95A1-C211D59C9E39}"
@@ -25,10 +23,6 @@ Global
 		{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE94D1B9-97C2-4EEB-9FA4-3C1580799A3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D61D9D7-4FD9-4C8A-B524-FE432DBED77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D61D9D7-4FD9-4C8A-B524-FE432DBED77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D61D9D7-4FD9-4C8A-B524-FE432DBED77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D61D9D7-4FD9-4C8A-B524-FE432DBED77A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EB3FF45-1638-4E1E-A983-BF7F9659C284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EB3FF45-1638-4E1E-A983-BF7F9659C284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EB3FF45-1638-4E1E-A983-BF7F9659C284}.Release|Any CPU.ActiveCfg = Release|Any CPU

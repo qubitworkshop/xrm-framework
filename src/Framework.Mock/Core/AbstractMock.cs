@@ -4,6 +4,7 @@ using System.Linq;
 using FakeXrmEasy;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 using Ninject;
 using Qubit.Xrm.Framework.Mock.Core.Mocks.Services.MockWeb;
 using Qubit.Xrm.Framework.Mock.Core.MockStore;
@@ -53,7 +54,7 @@ namespace Qubit.Xrm.Framework.Mock.Core
             //Setup Facked Context
             FakedContext = new XrmFakedContext
             {
-                ProxyTypesAssembly = MockOptions.ProxyTypesAssembly ?? typeof(TImplementation).Assembly
+                ProxyTypesAssembly = MockOptions.ProxyTypesAssembly
             };
 
             //Build system store
