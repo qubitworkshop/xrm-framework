@@ -5,7 +5,7 @@
   <metadata>
     <id>Qubit.Xrm.Framework.Mock</id>
     <title>Dynamics CRM 365 Customization Test Framework</title>
-    <version>1.0.0.7</version>
+    <version>1.0.0.0</version>
     <authors>Arun Murugan</authors>
     <owners>qubitworkshop</owners>
     <licenseUrl>https://github.com/qubitworkshop/xrm-framework/blob/master/LICENSE.md</licenseUrl>

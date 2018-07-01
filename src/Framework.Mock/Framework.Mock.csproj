@@ -85,7 +85,7 @@
       <HintPath>..\packages\PubComp.Caching.SystemRuntime.3.1.1\lib\net45\PubComp.Caching.SystemRuntime.dll</HintPath>
     </Reference>
     <Reference Include="Qubit.Xrm.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=958b6cf6dc7bd512, processorArchitecture=MSIL">
-      <HintPath>..\packages\Qubit.Xrm.Framework.1.0.0.7\lib\net461\Qubit.Xrm.Framework.dll</HintPath>
+      <HintPath>..\packages\Qubit.Xrm.Framework.1.0.0.9\lib\net461\Qubit.Xrm.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Seterlund.CodeGuard, Version=2.3.4.1324, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Seterlund.CodeGuard.2.3.4\lib\net40\Seterlund.CodeGuard.dll</HintPath>
@@ -121,6 +121,7 @@
     <Compile Include="Core\AbstractMock.cs" />
     <Compile Include="Core\AbstractMockOptions.cs" />
     <Compile Include="Core\AssemblyExtensions.cs" />
+    <Compile Include="Core\EmbeddedResourceNotFoundException.cs" />
     <Compile Include="Core\IMock.cs" />
     <Compile Include="Core\MockOptionsResourceBase.cs" />
     <Compile Include="Core\MockParameter.cs" />
@@ -129,7 +130,6 @@
     <Compile Include="Core\MockStore\MockEntityReference.cs" />
     <Compile Include="Core\MockStore\MockRelationship.cs" />
     <Compile Include="Core\MockStore\MockStoreResource.cs" />
-    <Compile Include="Core\Mocks\Services\Logging\FakeLoggingServiceBuilderExtensions.cs" />
     <Compile Include="Core\Mocks\Services\MockWeb\FakeHttpHandler.cs" />
     <Compile Include="Core\Mocks\Services\MockWeb\FakeHttpHandlerServiceBuilderExtensions.cs" />
     <Compile Include="Core\Mocks\Services\MockWeb\IFakeHttpHandler.cs" />

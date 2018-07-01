@@ -1,0 +1,18 @@
+﻿{
+  "Inherits": [
+    "Samples.Plugin.Tests.Mocks.Stores.base.json"
+  ],
+  "MockEntities": [
+    {
+      "Id": "A4766A71-1D2E-4374-8B6D-354476D1C1EC",
+      "LogicalName": "email",
+      "Attributes": [
+        {
+          "Name": "statecode",
+          "Type": "OptionSetValue",
+          "Value": 0
+        }
+      ]
+    }
+  ]
+}

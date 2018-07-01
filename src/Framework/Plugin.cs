@@ -62,14 +62,12 @@ namespace Qubit.Xrm.Framework
         }
     }
 
-    public abstract class Plugin<TSettingsProvider, TPipelineServiceInterface> : Plugin<TSettingsProvider>
-        where TSettingsProvider : ISettingsProvider
-        where TPipelineServiceInterface : IEntityPipelineService
+    public abstract class Plugin : Plugin<DefaultSettingsProvider>
     {
-        public override void Execute(IKernel services)
-        {
-            TPipelineServiceInterface entityPipelineService = services.Get<TPipelineServiceInterface>();
-            entityPipelineService.HandlePipelineEvent();
-        }
+        protected Plugin()
+        { }
+
+        protected Plugin(IKernel fakeServices) : base(fakeServices)
+        { }
     }
 }

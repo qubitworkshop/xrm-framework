@@ -1,0 +1,36 @@
+﻿{
+  "Inherits": null,
+  "MockEntities": [
+    {
+      "Id": "419308E5-001F-4896-8AD2-ABBB76E2E66B",
+      "LogicalName": "systemuser",
+      "Attributes": [
+        {
+          "Name": "domainname",
+          "Type": "String",
+          "Value": "DEVELOPMENT\\ddevuser"
+        },
+        {
+          "Name": "firstname",
+          "Type": "String",
+          "Value": "John"
+        },
+        {
+          "Name": "lastname",
+          "Type": "String",
+          "Value": "Smith"
+        },
+        {
+          "Name": "fullname",
+          "Type": "String",
+          "Value": "John Smith"
+        },
+        {
+          "Name": "internalemailaddress",
+          "Type": "String",
+          "Value": "john.smith@dev.health..gov.au"
+        }
+      ]
+    }
+  ]
+}

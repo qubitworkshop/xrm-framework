@@ -95,7 +95,7 @@
     <Compile Include="Abstractions\Caching\Extensions.cs" />
     <Compile Include="Abstractions\Configuration\ISettingsProvider.cs" />
     <Compile Include="Abstractions\Configuration\SettingNotFoundException.cs" />
-    <Compile Include="Abstractions\Configuration\XrmSettingsProvider.cs" />
+    <Compile Include="Abstractions\Configuration\DefaultSettingsProvider.cs" />
     <Compile Include="Abstractions\Exceptions\CodeGaurdExtensions.cs" />
     <Compile Include="Abstractions\Exceptions\InvalidExecutionContextException.cs" />
     <Compile Include="Abstractions\Logging\FrameworkSinks.cs" />
@@ -303,6 +303,7 @@
     <Compile Include="Core\Target.cs" />
     <Compile Include="Core\TargetEntityLogicalNameAttribute.cs" />
     <Compile Include="Core\User.cs" />
+    <Compile Include="EntityPipelinePlugin.cs" />
     <Compile Include="Helpers\MetadataExtensions.cs" />
     <Compile Include="Helpers\OptionSetHelpers.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />

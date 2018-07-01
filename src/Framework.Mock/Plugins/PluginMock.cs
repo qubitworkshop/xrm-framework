@@ -32,4 +32,12 @@ namespace Qubit.Xrm.Framework.Mock.Plugins
             testCriteria(FakedContext, FakedServices);
         }
     }
+
+    public class PluginMock<TPlugin, TTestFixture> : PluginMock<TPlugin, TTestFixture, DefaultSettingsProvider>
+        where TPlugin : Plugin<DefaultSettingsProvider>, new()
+        where TTestFixture : new()
+    {
+        public PluginMock(Func<MockOptions<TTestFixture>> optionsBuilder) : base(optionsBuilder)
+        { }
+    }
 }

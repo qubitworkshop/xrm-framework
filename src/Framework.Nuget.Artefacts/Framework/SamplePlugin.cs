@@ -12,7 +12,7 @@ namespace Framework.Nuget.Artefacts
 {
     [Messages(Messages.Create, Messages.Update)]
     [TargetEntityLogicalName("account")]
-    public sealed class SamplePlugin : Plugin<CustomSettingsProvider>
+    public sealed class SamplePlugin : Plugin
     {
         public override void Execute(IKernel services)
         {

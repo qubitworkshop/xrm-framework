@@ -1,0 +1,17 @@
+﻿{
+  "Message": "Create",
+  "Store": "Samples.Plugin.Tests.Mocks.TestCases.Account.Create.AutoNumber.store.json",
+  "Stage": 40,
+  "UserId": "419308E5-001F-4896-8AD2-ABBB76E2E66B",
+  "InputParameters": [
+    {
+      "Name": "Target",
+      "Type": "Entity",
+      "Value": {
+        "Id": "A4766A71-1D2E-4374-8B6D-354476D1C1EC",
+        "LogicalName": "email",
+        "Attributes": []
+      }
+    }
+  ]
+}

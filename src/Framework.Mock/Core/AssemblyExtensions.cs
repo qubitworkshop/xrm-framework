@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
+using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Mock.Core
 {
@@ -10,6 +12,9 @@ namespace Qubit.Xrm.Framework.Mock.Core
         {
             using (Stream stream = assembly.GetManifestResourceStream(resource))
             {
+                //Validate.That(() => stream).IsNotNull()
+                //    .WithExceptions((value, errors) => throw new EmbeddedResourceNotFoundException(resource));
+
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     return reader.ReadToEnd();

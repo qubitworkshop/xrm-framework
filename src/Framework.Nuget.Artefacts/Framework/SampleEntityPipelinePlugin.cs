@@ -12,6 +12,6 @@ namespace Framework.Nuget.Artefacts
 {
     [Messages(Messages.Create, Messages.Update)]
     [TargetEntityLogicalName("account")]
-    public sealed class SampleEntityPipelinePlugin : Plugin<CustomSettingsProvider, ISampleEntityPipelineService>
+    public sealed class SampleEntityPipelinePlugin : EntityPipelinePlugin<ISampleEntityPipelineService>
     { }
 }

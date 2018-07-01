@@ -5,7 +5,7 @@
   <metadata>
     <id>Qubit.Xrm.Framework</id>
     <title>Dynamics CRM 365 Customization Framework</title>
-    <version>1.0.0.7</version>
+    <version>1.0.0.9</version>
     <authors>Arun Murugan</authors>
     <owners>qubitworkshop</owners>
     <licenseUrl>https://github.com/qubitworkshop/xrm-framework/blob/master/LICENSE.md</licenseUrl>
@@ -30,11 +30,11 @@
   </metadata>
   <files>
     <file src="readme.txt" target="" />
-    <file src="../Framework.Nuget.Artefacts/Framework/CustomSettingsProvider.cs" target="content/XrmFrameworkSamples" />
-    <file src="../Framework.Nuget.Artefacts/Framework/ISampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/Framework/SampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/Framework/SampleEntityPipelinePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/Framework/SamplePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
-    <file src="../Framework.Nuget.Artefacts/Framework/SampleErrorHandlingPlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Samples.Plugin/CustomSettingsProvider.cs" target="content/XrmFrameworkSamples" />
+    <file src="../Samples.Plugin/ISampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Samples.Plugin/SampleEntityPipelineService.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Samples.Plugin/SampleEntityPipelinePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Samples.Plugin/SamplePlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
+    <file src="../Samples.Plugin/SampleErrorHandlingPlugin.cs" target="content/XrmFrameworkSamples/Plugins" />
   </files>
 </package>

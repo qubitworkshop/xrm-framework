@@ -5,7 +5,6 @@ using FakeXrmEasy;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Ninject;
-using Qubit.Xrm.Framework.Mock.Core.Mocks.Services.Logging;
 using Qubit.Xrm.Framework.Mock.Core.Mocks.Services.MockWeb;
 using Qubit.Xrm.Framework.Mock.Core.MockStore;
 using Seterlund.CodeGuard;
@@ -47,8 +46,7 @@ namespace Qubit.Xrm.Framework.Mock.Core
         {
             FakedServices = MockOptions.FakedServices;
 
-            FakedServices.AddFakeLogging()
-                .AddFakeHttpHandler();
+            FakedServices.AddFakeHttpHandler();
 
             ImplementationInstance = (TImplementation)Activator.CreateInstance(typeof(TImplementation), FakedServices);
 
