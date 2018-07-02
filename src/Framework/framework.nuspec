@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--./nuget.exe pack -properties Configuration=Release-->
-<!--Install-Package Qubit.Xrm.Framework -Version 0.0.1.6 -Source C:\github\xrm-framework\src\Framework-->
+<!--Install-Package Qubit.Xrm.Framework -Version 1.0.0.10 -Source C:\github\xrm-framework\src\Framework-->
 <package >
   <metadata>
     <id>Qubit.Xrm.Framework</id>
