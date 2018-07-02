@@ -8,9 +8,9 @@
       "LogicalName": "account",
       "Attributes": [
         {
-          "Name": "statecode",
-          "Type": "OptionSetValue",
-          "Value": 0
+          "Name": "name",
+          "Type": "String",
+          "Value": "Dummy Account 2"
         }
       ]
     }

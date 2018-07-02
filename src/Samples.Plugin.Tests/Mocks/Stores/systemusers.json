@@ -8,9 +8,19 @@
         {
           "Name": "domainname",
           "Type": "String",
-          "Value": "DEVELOPMENT\\ddevuser"
+          "Value": "DEVELOPMENT\\user1"
         }
       ]
+    }
+  ],
+  "MockRelationships": [
+    {
+      "RelationshipName": "systemuser_created_accounts",
+      "RelationshipType": "OneToMany",
+      "Entity1LogicalName": "systemuser",
+      "Entity1Attribute": "systemuserid",
+      "Entity2LogicalName": "account",
+      "Entity2Attribute": "createdby"
     }
   ]
 }

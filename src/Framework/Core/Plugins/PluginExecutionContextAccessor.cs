@@ -12,7 +12,7 @@ namespace Qubit.Xrm.Framework.Core.Plugins
         private readonly ILogger _logger;
 
         public PluginExecutionContextAccessor(IPluginExecutionContext pluginExecutionContext, ILogger logger, 
-            IOrganizationService organizationService, ICache cache)
+            IOrganizationService organizationService, ICache cache, ITracingService tracingService)
         {
             _logger = logger;
 

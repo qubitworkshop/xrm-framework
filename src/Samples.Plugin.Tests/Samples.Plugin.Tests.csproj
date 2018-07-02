@@ -125,6 +125,8 @@
   <ItemGroup>
     <None Include="app.config" />
     <EmbeddedResource Include="Mocks\Stores\systemusers.json" />
+    <EmbeddedResource Include="Mocks\TestCases\Account\Create\Relationships\context.json" />
+    <EmbeddedResource Include="Mocks\TestCases\Account\Create\Relationships\store.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -6,9 +6,9 @@
       "LogicalName": "account",
       "Attributes": [
         {
-          "Name": "domainname",
+          "Name": "name",
           "Type": "String",
-          "Value": "DEVELOPMENT\\ddevuser"
+          "Value": "Dummy Account 1"
         }
       ]
     }

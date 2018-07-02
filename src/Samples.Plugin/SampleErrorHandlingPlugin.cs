@@ -11,11 +11,12 @@ namespace Samples.Plugin
     {
         public override void Execute(IKernel services)
         {
-            throw new NotImplementedException();
+            throw new Exception("some exception");
         }
 
         public override void OnError(Exception ex, IKernel services)
         {
+            //handle exception here
             base.OnError(ex, services);
         }
     }

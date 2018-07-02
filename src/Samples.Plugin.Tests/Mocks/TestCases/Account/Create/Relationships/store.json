@@ -1,0 +1,33 @@
+﻿{
+  "Inherits": [
+    "Samples.Plugin.Tests.Mocks.Stores.base.json"
+  ],
+  "MockEntities": [
+    {
+      "Id": "A4766A71-1D2E-4374-8B6D-354476D1C1EC",
+      "LogicalName": "account",
+      "Attributes": [
+        {
+          "Name": "name",
+          "Type": "String",
+          "Value": "Dummy Account 2"
+        }
+      ]
+    }
+  ],
+  "MockAssociations": [
+    {
+      "RelationshipName": "systemuser_created_accounts",
+      "TargetEntity": {
+        "Id": "419308E5-001F-4896-8AD2-ABBB76E2E66B",
+        "LogicalName": "systemusers"
+      },
+      "RelatedEntities": [
+        {
+          "Id": "A4766A71-1D2E-4374-8B6D-354476D1C1EC",
+          "LogicalName": "account"
+        }
+      ]
+    }
+  ]
+}
