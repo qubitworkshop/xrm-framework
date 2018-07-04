@@ -6,20 +6,21 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
 using Ninject;
-using Qubit.Xrm.Framework.Mock.Core.Mocks.Services.MockWeb;
+using Qubit.Xrm.Framework.Mock.Core.Mocks.Http;
 using Qubit.Xrm.Framework.Mock.Core.MockStore;
 using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Mock.Core
 {
-    public abstract class AbstractMock<TImplementation, TTestFixture, TMockOptions, TOptionsResource, TExecutionContext> : IMock
+    public abstract class AbstractMock<TTestFixture, TMockOptions, TOptionsResource, TExecutionContext> : IMock
         where TTestFixture : new()
         where TMockOptions : AbstractMockOptions<TTestFixture, TOptionsResource>
         where TOptionsResource : MockOptionsResourceBase
         where TExecutionContext : class, IExecutionContext, new()
     {
+        public Action<IKernel> SetupMockServices { get; set; }
+
         protected IKernel FakedServices { get; private set; }
-        protected TImplementation ImplementationInstance { get; private set; }
         protected TMockOptions MockOptions { get; }
         protected XrmFakedContext FakedContext { get; private set; }
         protected TExecutionContext FakedExecutionContext { get; private set; }
@@ -47,9 +48,7 @@ namespace Qubit.Xrm.Framework.Mock.Core
         {
             FakedServices = MockOptions.FakedServices;
 
-            FakedServices.AddFakeHttpHandler();
-
-            ImplementationInstance = (TImplementation)Activator.CreateInstance(typeof(TImplementation), FakedServices);
+            FakedServices.AddHttpMock();
 
             //Setup Facked Context
             FakedContext = new XrmFakedContext

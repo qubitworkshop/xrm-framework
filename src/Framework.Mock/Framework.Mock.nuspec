@@ -22,6 +22,7 @@
       <dependency id="Newtonsoft.Json.Schema" version="3.0.10" />
       <dependency id="NUnit" version="3.10.1" />
       <dependency id="NUnit3TestAdapter" version="3.10.0" />
+      <dependency id="WireMock.Net" version="1.0.4.4" />
     </dependencies>
     <references>
       <reference file="Qubit.Xrm.Framework.Mock.dll" />

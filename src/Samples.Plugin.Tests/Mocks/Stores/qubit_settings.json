@@ -16,6 +16,22 @@
           "Value": "{\"SourceName\": \"XrmFrameworkTests\",\"Sink\": \"Console\"}"
         }
       ]
+    },
+    {
+      "Id": "CB703995-037E-435D-8256-9535A7E64F0F",
+      "LogicalName": "qubit_setting",
+      "Attributes": [
+        {
+          "Name": "qubit_key",
+          "Type": "string",
+          "Value": "abnservice"
+        },
+        {
+          "Name": "qubit_value",
+          "Type": "string",
+          "Value": "http://localhost:8080"
+        }
+      ]
     }
   ]
 }

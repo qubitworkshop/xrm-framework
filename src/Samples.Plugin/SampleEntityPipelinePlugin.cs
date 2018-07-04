@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using System;
+using Ninject;
 using Qubit.Xrm.Framework;
 using Qubit.Xrm.Framework.Core;
 
@@ -11,7 +12,7 @@ namespace Samples.Plugin
         public SampleEntityPipelinePlugin()
         { }
 
-        public SampleEntityPipelinePlugin(IKernel fakeServices) : base(fakeServices)
+        public SampleEntityPipelinePlugin(IKernel fakeServices, Action<IKernel> setupMockServices) : base(fakeServices, setupMockServices)
         { }
     }
 }

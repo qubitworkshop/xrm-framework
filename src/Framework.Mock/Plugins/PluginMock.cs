@@ -5,11 +5,12 @@ using NUnit.Framework;
 using Qubit.Xrm.Framework.Abstractions.Configuration;
 using Qubit.Xrm.Framework.Core;
 using Qubit.Xrm.Framework.Mock.Core;
+using Qubit.Xrm.Framework.Mock.Core.Mocks.Http;
 
 namespace Qubit.Xrm.Framework.Mock.Plugins
 {
     public class PluginMock<TPlugin, TTestFixture, TSettingsProvider> 
-        : AbstractMock<TPlugin, TTestFixture, MockOptions<TTestFixture>, MockOptionsResource, XrmFakedPluginExecutionContext>
+        : AbstractMock<TTestFixture, MockOptions<TTestFixture>, MockOptionsResource, XrmFakedPluginExecutionContext>
         where TPlugin : Plugin<TSettingsProvider>, new()
         where TTestFixture: new()
         where TSettingsProvider : ISettingsProvider
@@ -28,8 +29,10 @@ namespace Qubit.Xrm.Framework.Mock.Plugins
 
         public override void Test(Action<IXrmContext, IKernel> testCriteria)
         {
-            Assert.DoesNotThrow(() => FakedContext.ExecutePluginWith(FakedExecutionContext, ImplementationInstance));
+            TPlugin pluginInstance = (TPlugin)Activator.CreateInstance(typeof(TPlugin), FakedServices, SetupMockServices);
+            Assert.DoesNotThrow(() => FakedContext.ExecutePluginWith(FakedExecutionContext, pluginInstance));
             testCriteria(FakedContext, FakedServices);
+            FakedServices.RemoveHttpMock();
         }
     }
 

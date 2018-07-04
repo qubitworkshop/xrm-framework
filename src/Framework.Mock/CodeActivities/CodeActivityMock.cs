@@ -3,11 +3,12 @@ using FakeXrmEasy;
 using Ninject;
 using NUnit.Framework;
 using Qubit.Xrm.Framework.Mock.Core;
+using Qubit.Xrm.Framework.Mock.Core.Mocks.Http;
 
 namespace Qubit.Xrm.Framework.Mock.CodeActivities
 {
     public class CodeActivityMock<TCodeActivity, TTestFixture> 
-        : AbstractMock<TCodeActivity, TTestFixture, MockOptions<TTestFixture>, MockOptionsResource, XrmFakedWorkflowContext>
+        : AbstractMock<TTestFixture, MockOptions<TTestFixture>, MockOptionsResource, XrmFakedWorkflowContext>
         where TCodeActivity : WorkflowActivity, new()
         where TTestFixture : new()
     {
@@ -21,8 +22,10 @@ namespace Qubit.Xrm.Framework.Mock.CodeActivities
 
         public override void Test(Action<IXrmContext, IKernel> testCriteria)
         {
-            Assert.DoesNotThrow(() => FakedContext.ExecuteCodeActivity(FakedExecutionContext, null, ImplementationInstance));
+            TCodeActivity codeActivityInstance = (TCodeActivity)Activator.CreateInstance(typeof(TCodeActivity), FakedServices, SetupMockServices);
+            Assert.DoesNotThrow(() => FakedContext.ExecuteCodeActivity(FakedExecutionContext, null, codeActivityInstance));
             testCriteria(FakedContext, FakedServices);
+            FakedServices.RemoveHttpMock();
         }
     }
 }

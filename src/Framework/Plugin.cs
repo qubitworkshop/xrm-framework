@@ -12,13 +12,15 @@ namespace Qubit.Xrm.Framework
         where TSettingsProvider : ISettingsProvider
     {
         private readonly IKernel _fakeServices;
+        private readonly Action<IKernel> _setupMockServices;
 
         protected Plugin()
         { }
 
-        protected Plugin(IKernel fakeServices)
+        protected Plugin(IKernel fakeServices, Action<IKernel> setupMockServices)
         {
             _fakeServices = fakeServices;
+            _setupMockServices = setupMockServices;
         }
 
         public void Execute(IServiceProvider serviceProvider)
@@ -39,6 +41,8 @@ namespace Qubit.Xrm.Framework
                 .AddPluginPipelineServices();
 
             services.Bind<ISettingsProvider>().To<TSettingsProvider>().InTransientScope();
+
+            _setupMockServices?.Invoke(_fakeServices);
 
             IPluginExecutionContextAccessor executionContextAccessor = services.Get<IPluginExecutionContextAccessor>();
 
@@ -66,7 +70,7 @@ namespace Qubit.Xrm.Framework
         protected Plugin()
         { }
 
-        protected Plugin(IKernel fakeServices) : base(fakeServices)
+        protected Plugin(IKernel fakeServices, Action<IKernel> setupMockServices) : base(fakeServices, setupMockServices)
         { }
     }
 }

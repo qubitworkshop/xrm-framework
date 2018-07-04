@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3EFB956-F386-42C7-91A5-81282D0A2266}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qubit.Xrm.Framework.Abstractions.Logging</RootNamespace>
+    <AssemblyName>Qubit.Xrm.Framework.Abstractions.Logging</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0.2\lib\net452\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0.2\lib\net452\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk.Workflow, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.Workflow.8.2.0.2\lib\net452\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrameworkSinks.cs" />
+    <Compile Include="LoggingServiceBuilderExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serilog.Formatting.Compact\Formatting\Compact\CompactJsonFormatter.cs" />
+    <Compile Include="Serilog.Formatting.Compact\Formatting\Compact\EventIdHash.cs" />
+    <Compile Include="Serilog.Formatting.Compact\Formatting\Compact\RenderedCompactJsonFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Console\ConsoleLoggerConfigurationExtensions.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\ConsoleSink.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedDisplayValueFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedJsonValueFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedValueFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Formatting\ThemedValueFormatterState.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\EventPropertyTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\ExceptionTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\LevelOutputFormat.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\LevelTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\MessageTemplateOutputTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\NewLineTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\OutputTemplateRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\OutputTemplateTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\PropertiesTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\TextTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Output\TimestampTokenRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Platform\WindowsConsole.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\AlignmentExtensions.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\Casing.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\Padding.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Rendering\ThemedMessageTemplateRenderer.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\AnsiConsoleTheme.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\AnsiConsoleThemes.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\ConsoleTheme.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\ConsoleThemeStyle.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\EmptyConsoleTheme.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\StyleReset.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleTheme.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleThemes.cs" />
+    <Compile Include="Serilog.Sinks.Console\Sinks\SystemConsole\Themes\SystemConsoleThemeStyle.cs" />
+    <Compile Include="Serilog.Sinks.EventLog\LoggerConfigurationEventLogExtensions.cs" />
+    <Compile Include="Serilog.Sinks.EventLog\Sinks\EventLog\EventIdHashProvider.cs" />
+    <Compile Include="Serilog.Sinks.EventLog\Sinks\EventLog\EventLogSink.cs" />
+    <Compile Include="Serilog.Sinks.EventLog\Sinks\EventLog\IEventIdProvider.cs" />
+    <Compile Include="Serilog.Sinks.File\FileLoggerConfigurationExtensions.cs" />
+    <Compile Include="Serilog.Sinks.File\RollingInterval.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\Clock.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\FileSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\IFileSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\IFlushableFileSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\IOErrors.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\NullSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\PathRoller.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\PeriodicFlushToDiskSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\RollingFileSink.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\RollingIntervalExtensions.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\RollingLogFile.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\SharedFileSink.AtomicAppend.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\SharedFileSink.OSMutex.cs" />
+    <Compile Include="Serilog.Sinks.File\Sinks\File\WriteCountingStream.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Configuration\ColumnCollection.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Configuration\ColumnConfig.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Configuration\MSSqlServerConfigurationSection.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\LoggerConfigurationMSSqlServerExtensions.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\ColumnOptions.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\MSSqlServerAuditSink.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\MSSqlServerSink.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\MSSqlServerSinkTraits.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\SqlTableCreator.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\StandardColumn.cs" />
+    <Compile Include="Serilog.Sinks.MSSqlServer\Sinks\MSSqlServer\XmlPropertyFormatter.cs" />
+    <Compile Include="Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\BatchedConnectionStatus.cs" />
+    <Compile Include="Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\BoundedConcurrentQueue.cs" />
+    <Compile Include="Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\PeriodicBatchingSink.cs" />
+    <Compile Include="Serilog.Sinks.PeriodicBatching\Sinks\PeriodicBatching\PortableTimer.cs" />
+    <Compile Include="Serilog.Sinks.Seq\SeqLoggerConfigurationExtensions.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Audit\SeqAuditSink.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\ControlledLevelSwitch.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\BookmarkFile.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\DurableSeqSink.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\FileSet.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\FileSetPosition.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\HttpLogShipper.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\Durable\PayloadReader.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\ExponentialBackoffConnectionSchedule.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\PortableTimer.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\RawJsonFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\SeqApi.cs" />
+    <Compile Include="Serilog.Sinks.Seq\Sinks\Seq\SeqSink.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\CompactSplunkJsonFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\CustomField.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\CustomFields.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\Epoch.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\EventCollectorClient.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\EventCollectorRequest.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\EventCollectorSink.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\Sinks\Splunk\SplunkJsonFormatter.cs" />
+    <Compile Include="Serilog.Sinks.Splunk\SplunkLoggingConfigurationExtensions.cs" />
+    <Compile Include="Serilog\Capturing\DepthLimiter.cs" />
+    <Compile Include="Serilog\Capturing\GetablePropertyFinder.cs" />
+    <Compile Include="Serilog\Capturing\MessageTemplateProcessor.cs" />
+    <Compile Include="Serilog\Capturing\PropertyBinder.cs" />
+    <Compile Include="Serilog\Capturing\PropertyValueConverter.cs" />
+    <Compile Include="Serilog\Configuration\ILoggerSettings.cs" />
+    <Compile Include="Serilog\Configuration\LoggerAuditSinkConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerDestructuringConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerEnrichmentConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerFilterConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerMinimumLevelConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerSettingsConfiguration.cs" />
+    <Compile Include="Serilog\Configuration\LoggerSinkConfiguration.cs" />
+    <Compile Include="Serilog\Context\ImmutableStack.cs" />
+    <Compile Include="Serilog\Context\LogContext.cs" />
+    <Compile Include="Serilog\Core\Constants.cs" />
+    <Compile Include="Serilog\Core\Enrichers\EmptyEnricher.cs" />
+    <Compile Include="Serilog\Core\Enrichers\FixedPropertyEnricher.cs" />
+    <Compile Include="Serilog\Core\Enrichers\PropertyEnricher.cs" />
+    <Compile Include="Serilog\Core\Enrichers\SafeAggregateEnricher.cs" />
+    <Compile Include="Serilog\Core\Filters\DelegateFilter.cs" />
+    <Compile Include="Serilog\Core\IDestructuringPolicy.cs" />
+    <Compile Include="Serilog\Core\ILogEventEnricher.cs" />
+    <Compile Include="Serilog\Core\ILogEventFilter.cs" />
+    <Compile Include="Serilog\Core\ILogEventPropertyFactory.cs" />
+    <Compile Include="Serilog\Core\ILogEventPropertyValueFactory.cs" />
+    <Compile Include="Serilog\Core\ILogEventSink.cs" />
+    <Compile Include="Serilog\Core\IMessageTemplateParser.cs" />
+    <Compile Include="Serilog\Core\IScalarConversionPolicy.cs" />
+    <Compile Include="Serilog\Core\LevelOverrideMap.cs" />
+    <Compile Include="Serilog\Core\Logger.cs" />
+    <Compile Include="Serilog\Core\LoggingLevelSwitch.cs" />
+    <Compile Include="Serilog\Core\MessageTemplateFormatMethodAttribute.cs" />
+    <Compile Include="Serilog\Core\Pipeline\MessageTemplateCache.cs" />
+    <Compile Include="Serilog\Core\Pipeline\SilentLogger.cs" />
+    <Compile Include="Serilog\Core\Sinks\AggregateSink.cs" />
+    <Compile Include="Serilog\Core\Sinks\FilteringSink.cs" />
+    <Compile Include="Serilog\Core\Sinks\RestrictedSink.cs" />
+    <Compile Include="Serilog\Core\Sinks\SafeAggregateSink.cs" />
+    <Compile Include="Serilog\Core\Sinks\SecondaryLoggerSink.cs" />
+    <Compile Include="Serilog\Data\LogEventPropertyValueRewriter.cs" />
+    <Compile Include="Serilog\Data\LogEventPropertyValueVisitor.cs" />
+    <Compile Include="Serilog\Debugging\LoggingFailedException.cs" />
+    <Compile Include="Serilog\Debugging\SelfLog.cs" />
+    <Compile Include="Serilog\Enrichers\LogContextEnricher.cs" />
+    <Compile Include="Serilog\Events\DictionaryValue.cs" />
+    <Compile Include="Serilog\Events\LevelAlias.cs" />
+    <Compile Include="Serilog\Events\LogEvent.cs" />
+    <Compile Include="Serilog\Events\LogEventLevel.cs" />
+    <Compile Include="Serilog\Events\LogEventProperty.cs" />
+    <Compile Include="Serilog\Events\LogEventPropertyValue.cs" />
+    <Compile Include="Serilog\Events\MessageTemplate.cs" />
+    <Compile Include="Serilog\Events\ScalarValue.cs" />
+    <Compile Include="Serilog\Events\SequenceValue.cs" />
+    <Compile Include="Serilog\Events\StructureValue.cs" />
+    <Compile Include="Serilog\Filters\Matching.cs" />
+    <Compile Include="Serilog\Formatting\Display\LevelOutputFormat.cs" />
+    <Compile Include="Serilog\Formatting\Display\MessageTemplateTextFormatter.cs" />
+    <Compile Include="Serilog\Formatting\Display\Obsolete\LiteralStringValue.cs" />
+    <Compile Include="Serilog\Formatting\Display\Obsolete\LogEventLevelValue.cs" />
+    <Compile Include="Serilog\Formatting\Display\Obsolete\LogEventPropertiesValue.cs" />
+    <Compile Include="Serilog\Formatting\Display\Obsolete\LogEventPropertyMessageValue.cs" />
+    <Compile Include="Serilog\Formatting\Display\OutputProperties.cs" />
+    <Compile Include="Serilog\Formatting\Display\PropertiesOutputFormat.cs" />
+    <Compile Include="Serilog\Formatting\ITextFormatter.cs" />
+    <Compile Include="Serilog\Formatting\Json\JsonFormatter.cs" />
+    <Compile Include="Serilog\Formatting\Json\JsonValueFormatter.cs" />
+    <Compile Include="Serilog\Formatting\Raw\RawFormatter.cs" />
+    <Compile Include="Serilog\ILogger.cs" />
+    <Compile Include="Serilog\Log.cs" />
+    <Compile Include="Serilog\LoggerConfiguration.cs" />
+    <Compile Include="Serilog\LoggerExtensions.cs" />
+    <Compile Include="Serilog\Parsing\Alignment.cs" />
+    <Compile Include="Serilog\Parsing\AlignmentDirection.cs" />
+    <Compile Include="Serilog\Parsing\Destructuring.cs" />
+    <Compile Include="Serilog\Parsing\MessageTemplateParser.cs" />
+    <Compile Include="Serilog\Parsing\MessageTemplateToken.cs" />
+    <Compile Include="Serilog\Parsing\PropertyToken.cs" />
+    <Compile Include="Serilog\Parsing\TextToken.cs" />
+    <Compile Include="Serilog\Policies\ByteArrayScalarConversionPolicy.cs" />
+    <Compile Include="Serilog\Policies\DelegateDestructuringPolicy.cs" />
+    <Compile Include="Serilog\Policies\EnumScalarConversionPolicy.cs" />
+    <Compile Include="Serilog\Policies\ProjectedDestructuringPolicy.cs" />
+    <Compile Include="Serilog\Policies\ReflectionTypesScalarDestructuringPolicy.cs" />
+    <Compile Include="Serilog\Policies\SimpleScalarConversionPolicy.cs" />
+    <Compile Include="Serilog\Rendering\Casing.cs" />
+    <Compile Include="Serilog\Rendering\MessageTemplateRenderer.cs" />
+    <Compile Include="Serilog\Rendering\Padding.cs" />
+    <Compile Include="Serilog\Settings\KeyValuePairs\CallableConfigurationMethodFinder.cs" />
+    <Compile Include="Serilog\Settings\KeyValuePairs\KeyValuePairSettings.cs" />
+    <Compile Include="Serilog\Settings\KeyValuePairs\SettingValueConversions.cs" />
+    <Compile Include="SettingsKeyNotFoundException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

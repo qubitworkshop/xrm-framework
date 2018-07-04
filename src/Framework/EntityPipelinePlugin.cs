@@ -16,7 +16,7 @@ namespace Qubit.Xrm.Framework
         protected EntityPipelinePlugin()
         { }
 
-        protected EntityPipelinePlugin(IKernel fakeServices) : base(fakeServices)
+        protected EntityPipelinePlugin(IKernel fakeServices, Action<IKernel> setupMockServices) : base(fakeServices, setupMockServices)
         { }
 
         public override void Execute(IKernel services)
@@ -34,7 +34,7 @@ namespace Qubit.Xrm.Framework
         protected EntityPipelinePlugin()
         { }
 
-        protected EntityPipelinePlugin(IKernel fakeServices) : base(fakeServices)
+        protected EntityPipelinePlugin(IKernel fakeServices, Action<IKernel> setupMockServices) : base(fakeServices, setupMockServices)
         { }
     }
 }
