@@ -42,6 +42,9 @@ namespace Plugins.Tests
             httpMock.SetupRequest(Request.Create().WithPath("/validate").UsingGet(), Response.Create().WithBody("Test"));
         }
 
+        /// <summary>
+        /// Basic test to get the plugin to execute and test core functionality
+        /// </summary>
         [Test]
         public void When_AccountCreated_Expect_AccountAutonumberToBePopulated()
         {
@@ -62,6 +65,10 @@ namespace Plugins.Tests
             });
         }
 
+
+        /// <summary>
+        /// Testing 1:N relationships with plugin
+        /// </summary>
         [Test]
         public void When_AccountCreated_Expect_CreatedBy()
         {
@@ -79,7 +86,13 @@ namespace Plugins.Tests
 
                 Assert.IsTrue(accountEntity.Contains("createdby"));
                 Assert.IsInstanceOf(typeof(EntityReference), accountEntity["createdby"]);
-                Assert.IsTrue(accountEntity.GetAttributeValue<EntityReference>("createdby").Id.Equals(new Guid("419308E5-001F-4896-8AD2-ABBB76E2E66B")));
+
+                EntityReference createdByEntityReference = accountEntity.GetAttributeValue<EntityReference>("createdby");
+                Assert.IsTrue(createdByEntityReference.Id.Equals(new Guid("419308E5-001F-4896-8AD2-ABBB76E2E66B")));
+
+                Entity createEntity = organizationService.Retrieve(createdByEntityReference.LogicalName, createdByEntityReference.Id, new ColumnSet(true));
+                Assert.IsTrue(createEntity.Contains("domainname"));
+                Assert.IsTrue(createEntity.GetAttributeValue<string>("domainname") == "DEVELOPMENT\\user1");
             });
         }
 

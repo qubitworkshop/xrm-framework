@@ -20,7 +20,7 @@
       "RelationshipName": "systemuser_created_accounts",
       "TargetEntity": {
         "Id": "419308E5-001F-4896-8AD2-ABBB76E2E66B",
-        "LogicalName": "systemusers"
+        "LogicalName": "systemuser"
       },
       "RelatedEntities": [
         {
