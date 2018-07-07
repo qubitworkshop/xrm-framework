@@ -13,7 +13,7 @@
         {
           "Name": "qubit_value",
           "Type": "string",
-          "Value": "{\"SourceName\": \"XrmFrameworkTests\",\"Sink\": \"Console\"}"
+          "Value": "{\"SourceName\": \"XrmFrameworkTests\",\"Sink\": \"Console\" }"
         }
       ]
     },

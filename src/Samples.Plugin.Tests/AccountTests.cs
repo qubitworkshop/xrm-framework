@@ -116,5 +116,19 @@ namespace Plugins.Tests
                 Assert.IsTrue(accountEntity.GetAttributeValue<EntityReference>("createdby").Id.Equals(new Guid("419308E5-001F-4896-8AD2-ABBB76E2E66B")));
             });
         }
+
+        [Test]
+        public void When_AccountCreated_Expect_ErrorHandled()
+        {
+            var testOptions = new MockOptions<AccountTests>("Samples.Plugin.Tests.Mocks.TestCases.Account.Create.Relationships.context.json");
+
+            IMock pluginMock = new PluginMock<SampleErrorHandlingPlugin, AccountTests, DefaultSettingsProvider>(() => testOptions);
+
+            pluginMock.Test((resultContext, services) =>
+            {
+                IOrganizationService organizationService = services.Get<IOrganizationService>();
+                Entity accountEntity = organizationService.Retrieve("account", new Guid("A4766A71-1D2E-4374-8B6D-354476D1C1EC"), new ColumnSet(true));
+            });
+        }
     }
 }

@@ -62,12 +62,12 @@ namespace Qubit.Xrm.Framework.Abstractions.Logging
                         .File(properties["Path"])
                         .CreateLogger();
                 case FrameworkSinks.Seq:
-                    Guard.That(properties.ContainsKey("ServerUrl")).IsTrue()
-                        .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("ServerUrl"));
+                    Guard.That(properties.ContainsKey("ServiceEndpoint")).IsTrue()
+                        .WithExceptions((value, errors) => throw new SettingsKeyNotFoundException("ServiceEndpoint"));
 
                     return properties.GetLoggerConfiguration(sourceName)
                         .WriteTo
-                        .Seq(properties["ServerUrl"])
+                        .Seq(properties["ServiceEndpoint"])
                         .CreateLogger();
                 case FrameworkSinks.EventLog:
                     return properties.GetLoggerConfiguration(sourceName)

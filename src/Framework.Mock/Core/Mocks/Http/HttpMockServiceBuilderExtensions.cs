@@ -23,11 +23,15 @@ namespace Qubit.Xrm.Framework.Mock.Core.Mocks.Http
         public static IKernel RemoveHttpMock(this IKernel services)
         {
             Guard.That(() => services).IsNotNull();
-            IHttpMock httpMock = services.Get<IHttpMock>();
-            httpMock.Shutdown();
+            IHttpMock httpMock = services.TryGet<IHttpMock>();
 
-            //Service Bus services
-            services.RemoveBinding(services.GetBindings(typeof(IHttpMock)).First());
+            if (httpMock != null)
+            {
+                httpMock.Shutdown();
+
+                //Service Bus services
+                services.RemoveBinding(services.GetBindings(typeof(IHttpMock)).First());
+            }
 
             return services;
         }

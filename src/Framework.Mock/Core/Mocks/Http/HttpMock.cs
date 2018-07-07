@@ -14,24 +14,24 @@ namespace Qubit.Xrm.Framework.Mock.Core.Mocks.Http
 {
     public class HttpMock : IHttpMock
     {
-        private readonly FluentMockServer _server;
-
         public HttpMock(IFluentMockServerSettings fluentMockServerSettings)
         {
-            _server = FluentMockServer.Start(fluentMockServerSettings);
+            Server = FluentMockServer.Start(fluentMockServerSettings);
         }
+
+        public FluentMockServer Server { get; }
 
         public void SetupRequest(IRequestMatcher requestMatcher, IResponseProvider responseProvider)
         {
-            _server
+            Server
                 .Given(requestMatcher)
                 .RespondWith(responseProvider);
         }
 
         public void Shutdown()
         {
-            _server.Stop();
-            _server.Dispose();
+            Server.Stop();
+            Server.Dispose();
         }
     }
 }
