@@ -11,7 +11,7 @@ Please read these guidelines before contributing to Json.NET:
 
 ## <a name="question"></a> Got a Question or Problem?
 
-If you have questions about how to use Json.NET, please read the
+If you have questions about how to use XRM-Framework, please read the
 [XRM-Framework documentation][documentation] or ask on [Stack Overflow][stackoverflow].
 
 GitHub issues are only for [reporting bugs](#issue) and [feature requests](#feature), not
