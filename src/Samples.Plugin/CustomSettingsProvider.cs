@@ -1,18 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xrm.Sdk;
+using PubComp.Caching.Core;
 using Qubit.Xrm.Framework.Abstractions.Configuration;
 
 namespace Samples.Plugin
 {
-    public class CustomSettingsProvider : ISettingsProvider
+    public class CustomSettingsProvider : DefaultSettingsProvider
     {
-        public string Get(string key)
+        private readonly Dictionary<string, string> _store;
+
+        public CustomSettingsProvider(IOrganizationService organizationService, ICache cache)
+            : base(organizationService, cache)
         {
-            throw new NotImplementedException();
+            _store = new Dictionary<string, string>
+            {
+                { "Logging", "{\"SourceName\": \"XrmFrameworkTests\",\"Sink\": \"Console\" }" }
+            };
         }
 
-        public T Get<T>(string key) where T : class
+        public override string Get(string key)
         {
-            throw new NotImplementedException();
+            return _store[key];
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Qubit.Xrm.Framework.Abstractions.Configuration
             _cache = cache;
         }
 
-        public string Get(string key)
+        public virtual string Get(string key)
         {
             string cacheKey = key.GetCacheKey<DefaultSettingsProvider>();
 
