@@ -6,7 +6,11 @@ namespace Qubit.Xrm.Framework.Core.Plugins
 {
     public abstract class EntityPipelineService : IEntityPipelineService
     {
+        /// <summary>
+        /// The current execution context's accessor
+        /// </summary>
         protected IPluginExecutionContextAccessor ExecutionContextAccessor { get; }
+
         private readonly ILogger _logger;
 
         protected EntityPipelineService(IPluginExecutionContextAccessor executionContextAccessor, ILogger logger)

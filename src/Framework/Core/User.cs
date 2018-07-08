@@ -7,6 +7,9 @@ using Seterlund.CodeGuard;
 
 namespace Qubit.Xrm.Framework.Core
 {
+    /// <summary>
+    /// Provides information about the current execution context user
+    /// </summary>
     public class User
     {
         private readonly IOrganizationService _organizationService;
@@ -36,7 +39,14 @@ namespace Qubit.Xrm.Framework.Core
             Guard.That(() => Entity).IsNotNull();
         }
 
+        /// <summary>
+        /// The user Id of the context user
+        /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// The systemuser entity that represents the current user
+        /// </summary>
         public Entity Entity { get; set; }
 
     }

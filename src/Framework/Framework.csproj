@@ -288,13 +288,13 @@
     <Compile Include="Core\CodeActivities\CodeActivityExecutionContextAccessor.cs" />
     <Compile Include="Core\CodeActivities\CodeActivityPipelineServiceBuilderExtensions.cs" />
     <Compile Include="Core\CodeActivities\ICodeActivityExecutionContextAccessor.cs" />
-    <Compile Include="Core\CoreExtensions.cs" />
     <Compile Include="Core\IEntityPipelineService.cs" />
     <Compile Include="Core\IExecutionContextAccessor.cs" />
     <Compile Include="Core\InvalidPipelineExecutionException.cs" />
     <Compile Include="Core\Messages.cs" />
     <Compile Include="Core\MessagesAttribute.cs" />
-    <Compile Include="Core\MimeTypeMap.cs" />
+    <Compile Include="Helpers\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\MimeTypeMap.cs" />
     <Compile Include="Core\Plugins\EntityPipelineService.cs" />
     <Compile Include="Core\Plugins\IPluginExecutionContextAccessor.cs" />
     <Compile Include="Core\Plugins\PipelineStages.cs" />

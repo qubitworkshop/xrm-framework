@@ -50,7 +50,7 @@ namespace Qubit.Xrm.Framework
 
             try
             {
-                executionContextAccessor.ValidateExecution(GetType());
+                PluginExecutionContextAccessor.ValidateExecution(executionContextAccessor, GetType());
                 Execute(services);
             }
             catch (Exception ex)

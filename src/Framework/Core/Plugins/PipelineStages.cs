@@ -1,5 +1,8 @@
 ﻿namespace Qubit.Xrm.Framework.Core.Plugins
 {
+    /// <summary>
+    /// CRM plugin pipeline stages
+    /// </summary>
     public enum PipelineStages
     {
         Invalid = 0,

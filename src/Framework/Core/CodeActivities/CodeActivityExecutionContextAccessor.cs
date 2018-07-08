@@ -40,7 +40,7 @@ namespace Qubit.Xrm.Framework.Core.CodeActivities
             throw new InvalidPluginExecutionException(OperationStatus.Failed, ex.ToString());
         }
 
-        public void ValidateExecution(Type implementationType)
+        public static void ValidateExecution(ICodeActivityExecutionContextAccessor executionContextAccessor, Type implementationType)
         {
             
         }

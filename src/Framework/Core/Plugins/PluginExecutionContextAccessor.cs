@@ -25,22 +25,22 @@ namespace Qubit.Xrm.Framework.Core.Plugins
             OperationId = pluginExecutionContext.OperationId;
         }
 
-        public void ValidateExecution(Type implementationType)
+        public static void ValidateExecution(IPluginExecutionContextAccessor executionContextAccessor, Type implementationType)
         {
             TargetEntityLogicalNameAttribute entityLogicalNameAttribute = Attribute.GetCustomAttribute(implementationType, typeof(TargetEntityLogicalNameAttribute)) as TargetEntityLogicalNameAttribute;
 
             Guard.That(() => entityLogicalNameAttribute).IsNotNull();
 
-            if (entityLogicalNameAttribute != null && entityLogicalNameAttribute.TargetEntityLogicalName != Target.EntityLogicalName)
+            if (entityLogicalNameAttribute != null && entityLogicalNameAttribute.TargetEntityLogicalName != executionContextAccessor.Target.EntityLogicalName)
             {
-                throw new InvalidPluginExecutionException(OperationStatus.Failed, $"Expected target entity was {entityLogicalNameAttribute.TargetEntityLogicalName}, but got {Target.EntityLogicalName}");
+                throw new InvalidPluginExecutionException(OperationStatus.Failed, $"Expected target entity was {entityLogicalNameAttribute.TargetEntityLogicalName}, but got {executionContextAccessor.Target.EntityLogicalName}");
             }
 
             if (Attribute.GetCustomAttribute(implementationType, typeof(MessagesAttribute)) is MessagesAttribute messageAttribute)
             {
-                if (messageAttribute.Messages.All(e => e != MessageName))
+                if (messageAttribute.Messages.All(e => e != executionContextAccessor.MessageName))
                 {
-                    throw new InvalidPluginExecutionException(OperationStatus.Failed, $"Expected message not registered for this plugin, got {MessageName}");
+                    throw new InvalidPluginExecutionException(OperationStatus.Failed, $"Expected message not registered for this plugin, got {executionContextAccessor.MessageName}");
                 }
             }
         }

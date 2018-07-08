@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Qubit.Xrm.Framework.Core
+namespace Qubit.Xrm.Framework.Helpers
 {
     public static class MimeTypeMap
     {

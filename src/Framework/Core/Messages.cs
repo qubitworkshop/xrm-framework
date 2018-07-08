@@ -1,5 +1,8 @@
 ﻿namespace Qubit.Xrm.Framework.Core
 {
+    /// <summary>
+    /// Supported messages by the framework
+    /// </summary>
     public static class Messages
     {
         public const string Create = "Create";

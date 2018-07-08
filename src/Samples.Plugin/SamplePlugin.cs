@@ -19,5 +19,10 @@ namespace Samples.Plugin
         {
             IOrganizationService organizationService = services.Get<IOrganizationService>();
         }
+
+        public override void Configure(IKernel services)
+        {
+            services.Bind<ISomeService>().To<SomeService>().InTransientScope();
+        }
     }
 }
