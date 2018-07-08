@@ -42,6 +42,8 @@ namespace Qubit.Xrm.Framework
 
             services.Bind<ISettingsProvider>().To<TSettingsProvider>().InTransientScope();
 
+            Configure(services);
+
             _setupMockServices?.Invoke(_fakeServices);
 
             IPluginExecutionContextAccessor executionContextAccessor = services.Get<IPluginExecutionContextAccessor>();
@@ -56,6 +58,9 @@ namespace Qubit.Xrm.Framework
                 OnError(ex, services);
             }
         }
+
+        public virtual void Configure(IKernel services)
+        { }
 
         public abstract void Execute(IKernel services);
         public virtual void OnError(Exception ex, IKernel services)

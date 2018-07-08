@@ -11,13 +11,15 @@ namespace Samples.Plugin
     {
         private readonly IOrganizationService _organizationService;
         private readonly ISettingsProvider _settingsProvider;
+        private readonly ISomeService _someService;
 
         public SampleEntityPipelineService(IPluginExecutionContextAccessor executionContextAccessor, ILogger logger,
-            IOrganizationService organizationService, ISettingsProvider settingsProvider) :
+            IOrganizationService organizationService, ISettingsProvider settingsProvider, ISomeService someService) :
             base(executionContextAccessor, logger)
         {
             _organizationService = organizationService;
             _settingsProvider = settingsProvider;
+            _someService = someService;
         }
 
         protected override void OnCreated()
@@ -33,6 +35,8 @@ namespace Samples.Plugin
             }
                 
             _organizationService.Update(account);
+
+            _someService.DoSomethingSpectacular();
         }
     }
 }

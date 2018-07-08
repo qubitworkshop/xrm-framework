@@ -14,5 +14,10 @@ namespace Samples.Plugin
 
         public SampleEntityPipelinePlugin(IKernel fakeServices, Action<IKernel> setupMockServices) : base(fakeServices, setupMockServices)
         { }
+
+        public override void Configure(IKernel services)
+        {
+            services.Bind<ISomeService>().To<SomeService>().InTransientScope();
+        }
     }
 }

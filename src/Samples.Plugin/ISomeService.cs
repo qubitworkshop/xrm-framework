@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Qubit.Xrm.Framework.Abstractions.Configuration
+namespace Samples.Plugin
 {
-    public class SettingNotFoundException : Exception
+    public interface ISomeService
     {
+        void DoSomethingSpectacular();
     }
 }
