@@ -27,7 +27,7 @@ with a fix.
 When submitting an issue please include the following information:
 
 - A description of the issue
-- The JSON, classes, and Json.NET code related to the issue
+- The classes, and code related to the issue
 - The exception message and stacktrace if an error was thrown
 - If possible, please include code that reproduces the issue. [DropBox][dropbox] or GitHub's
 [Gist][gist] can be used to share large code samples, or you could
